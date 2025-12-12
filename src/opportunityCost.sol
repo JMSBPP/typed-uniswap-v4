@@ -14,6 +14,26 @@ function calculateOpportunityCost(position memory p1,position memory p2) returns
     // require(p1._type != p2._type && p1.price != p2.price);
 }
 
+// function foo(position memory,position memory) internal returns(percentage) opportunityCost_;
+
+contract Foo{
+    function foo(uint x) internal returns(uint) {
+        return 1;
+    }
+
+    function (address,address) internal returns(bool) ze;
+    function (opportunityCost) external returns(percentage) si;
+
+
+    function bar() public returns(uint){
+        function(uint) internal returns(uint) f = foo;
+        return f(5); 
+    }
+
+}
+
+
+
 // type impermanentLoss is opportunityCost;
 
 type impermanentLoss is uint24;
