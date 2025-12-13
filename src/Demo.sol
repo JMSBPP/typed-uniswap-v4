@@ -9,10 +9,13 @@ pragma solidity ^0.8.0;
 // 
 //                            modules === > name_space
 //                      ------------------------------------------------
+//                                     TOP LEVEL ITEMS
 //                     | import                                        |
 //                     | types := T                                    |
 //                     | global functions --> No contract state access |
 //                     | contracts : C                                 |
+//                     | interface : I                                 |
+//                     | library: L                                    |
 //                      ------------------------------------------------       
 //                   
 // ==> contract {}    =   ?           nominal type + runtime deployment template 
@@ -42,8 +45,10 @@ type foo is bytes32;
 //         - sintax: Yes
 //         - semantic : ?
 
+// implications and meaning of this ?  
 struct bar{
     function (foo) external returns(foo) boo;
+    function (foo) internal returns(bytes32) booInternal;
 }
 
 contract Bar{
@@ -52,7 +57,7 @@ contract Bar{
         // function (foo) returns(foo) boo; 
     // But inside the contract is valid:
     // b.f: foo --> foo
-    function (foo) external returns(foo) boo;
+    function (foo) external view returns(foo) boo;
     
     // c.b: foo x uint ---> foo
     // Why ?: Error (4103): Internal type is not allowed for public or external functions.
@@ -67,6 +72,9 @@ contract Bar{
         function (bytes calldata) returns(bytes memory)
     ) private pure returns(barOutput){}
 
+    // function barExternal(
+    //     function ex(bytes calldata) returns(bytes memory)
+    // ) external{}
     // Is there a semantic dirfference if I define the type outside of the contract than inside   ?
     type barOutput is bytes32;
 
