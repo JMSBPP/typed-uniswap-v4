@@ -15,9 +15,9 @@ contract FCTypes{
        Type(cond ? bytes(string(_type.value)):abi.encode(abi.decode(_type.value, (int256))));
     
     }
-    function getStringOrInt(bool x) internal returns(function(bool) returns(Type memory _type)){
-        ? "Ninety Four" :int256(94);
-    }
+    // function getStringOrInt(bool x) internal returns(function(bool) returns(Type memory _type)){
+    //     x ? stringOrInt(x).value :int256(94);
+    // }
 
     // function toString(bool x) private returns(string memory){
         

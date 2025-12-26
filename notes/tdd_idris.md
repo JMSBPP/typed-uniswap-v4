@@ -53,7 +53,9 @@ program.intention ----type.checks---> type
 - guaranteed to produce a result
     - DOES NOT throw exeptions
     - DOES NOT run infinite loops
+
 ### function partial
+
 - might not return a result for some inputs
     - CAN throw exeptions
     - CAN run infinite loops

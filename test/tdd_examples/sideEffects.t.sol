@@ -8,10 +8,14 @@ import "../../src/tdd_examples/sideEffects1.sol";
 contract sideEffectsTest is Test{
     File file;
     FileReader fileReader;
+    UseNonZeroAddress useNonZeroAddress;
 
     function setUp() public{
-        file = new File();
-        fileReader = new FileReader();
+        useNonZeroAddress = new UseNonZeroAddress();
+    }
+
+    function test__unit__useNonZeroAddress() public {
+        useNonZeroAddress.use(NonZeroAddress.wrap(address(0x00)));
     }
 
     function test__imperative__readFile() public {

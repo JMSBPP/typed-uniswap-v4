@@ -17,3 +17,44 @@ contract FileReader{
         emit Result(res);
     }
 }
+
+
+
+
+
+// How does the compiler knows statically is non-zero
+
+// https://www.youtube.com/watch?v=_lZu1c7tZ-3:29
+
+
+// compiler error
+type NonZeroAddress is address;
+error TypeError(string reason);
+
+abstract contract TypeChecker{
+    modifier verifyTypes(bytes memory types){
+        _;
+    }
+}
+
+contract UseNonZeroAddress is TypeChecker{
+    event Used(NonZeroAddress);
+
+
+    function use(NonZeroAddress nonZeroAddress) external{
+        emit Used(nonZeroAddress);
+    }
+
+    function use(NonZeroAddress nonZeroAddress) external verifyTypes(abi.encode(nonZeroAddress)){
+        emit Used(nonZeroAddress);
+    }
+
+
+
+//     function use(NonZeroAddress)
+// //     function use(address value, function(address) returns(address)) external{}
+}
+
+
+
+
